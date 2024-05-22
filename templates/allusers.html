@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Revoked Faculty List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #737373;
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #00ff44;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        a {
+            text-decoration: none;
+            color: #00ff44;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #00ff44;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #03710a;
+        }
+
+        .flashes {
+            background-color: #00ff44;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .flashes li {
+            list-style: none;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+{% for message in messages %}
+    <li>{{ message }}</li>
+{% endfor %}
+{% endwith %}
+<body>
+    <div class="flashes">
+        <ul class="flashes">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </ul>
+    </div>
+    <br>
+<a href="{{url_for('adminpannel')}}"><button>Back</button></a>
+    <table border="1">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Paid or not</th>
+            <th>Provisional Certificate</th>
+            <th>Course Completion Certificate</th>
+            <th>Action</th>
+        </tr>
+        {% for user in new %}
+        <tr>
+            <td>{{ user[0]}}</td>
+            <td>{{ user[1]}}</td>
+            <td>{{ user[2] }}</td>
+            <td>{{ user[3] }}
+            <form method="POST" action="{{ url_for('generate_invoice', email=user[2]) }}">
+    <button type="submit">Generate Invoice</button>
+</form>
+</td>
+            <td><a href="/static/{{ user[4] }}" target="_blank">Provisional Certificate</a></td>
+            <td><a href="/static/{{ user[5] }}" target="_blank">Course Completion Certificate</a></td>
+
+           <td>
+    <form action="{{url_for('approve', emailid=user[2])}}" method="POST">
+        <button type="submit">{{user[6]}}</button>
+    </form>
+</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+

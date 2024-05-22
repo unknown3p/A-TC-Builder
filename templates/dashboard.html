@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revoked Faculty List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 150vh;
+            
+            background-image: url("https://i.ibb.co/Rjv8Thm/paper.png");
+            background-size: cover;
+             background-position: center;
+             display: flex;
+               justify-content: center;
+               align-items: baseline;
+           
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            margin-top: 20rem;
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #88fca9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .flashes {
+            background-color: #080808;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .flashes li {
+            list-style: none;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+{% for message in messages %}
+    <li>{{ message }}</li>
+{% endfor %}
+{% endwith %}
+<body>
+    <div class="flashes">
+        <ul class="flashes">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </ul>
+    </div>
+
+    <table border="1">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Email ID</th>
+        <th>Phone Number</th>
+        <th>Password</th>
+    </tr>
+        <tr>
+            <td>{{ new[0] }}</td>
+            <td>{{ new[1] }}</td>
+            <td>{{ new[2] }}</td>
+            <td>{{ new[3] }}</td>
+            <td>{{ new[4] }}</td>
+            <td>{{ new[5] }}</td>
+        </tr>
+    </table>
+</body>
+</html>
+

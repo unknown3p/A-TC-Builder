@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Certificate</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #4f4e4e;
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #030303;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #a596fd;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #a596fd;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            color: #030303;
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #fbacac;
+            border-radius: 5px;
+        }
+
+        select {
+            height: 40px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fefcfc;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:last-of-type {
+            background-color: #ccc;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+                {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endwith %}
+</head>
+<div class="flash-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+<body>
+    <form method="POST">
+        <h1>Transfer Certificate</h1><br>
+        <label for="name">Student Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender">
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label for="father">Father's Name</label>
+        <input type="text" name="father" id="father" required>
+
+        <label for="mother">Mother's Name</label>
+        <input type="text" name="mother" id="mother" required>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob" id="dob" required>
+
+        <label for="nationality">Nationality</label>
+        <input type="text" name="nationality" id="nationality" required>
+
+        <label for="belong">Whether the candidate belongs to S.C/S.T/O.B.C</label>
+        <select name="belong" id="belong">
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
+        <label for="admission">Date of Admission</label>
+        <input type="date" name="admission" id="admission" required>
+
+        <label for="classes">Class/Course Enrolled In</label>
+        <input type="text" name="classes" id="classes" required>
+
+        <label for="froms">Academic Year From</label>
+        <input type="date" name="froms" id="froms" required>
+
+        <label for="tos">Academic Year To</label>
+        <input type="date" name="tos" id="tos" required>
+
+        <label for="studies">Whether Qualified for Promotion to Higher Studies</label>
+        <select name="studies" id="studies">
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
+        <label for="dues">Whether the Student Paid All Dues</label>
+        <select name="dues" id="dues">
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
+        <label for="gc">General Conduct</label>
+        <input type="text" name="gc" id="gc" required>
+
+        <label for="certificate">Date of Issue of Certificate (DD/MM/YYYY)</label>
+        <input type="date" name="certificate" id="certificate" required>
+
+        <label for="reason">Reason for Leaving the College</label>
+        <input type="text" name="reason" id="reason" required>
+
+        <label for="remarks">Any Remarks</label>
+        <input type="text" name="remarks" id="remarks">
+        <label for="email">email</label>
+        <input type="text" name="email" id="remarks">
+
+        <button type="submit">Submit & Download</button>
+        <button><a href="{{url_for('userpanel')}}"> back</button></a>
+    </form>
+</body>
+</html>

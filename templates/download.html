@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Certificate</title>
+    <style>
+        /* Styles for the TC container */
+        .tc-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 2px solid #000;
+            font-family: Arial, sans-serif; /* Add a font-family for better readability */
+        }
+
+        /* TC heading styles */
+        h1 {
+            text-align: center;
+        }
+
+        /* Label styles */
+        label {
+            font-weight: bold;
+            text-align: right; /* Align labels to the right */
+        }
+
+        /* Information styles */
+        .info {
+            margin-left: 100px; /* Increase margin for better spacing */
+        }
+
+        /* Administrator Stamp styles */
+        .stamp {
+            float: right;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Principal styles */
+        .principal {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+                {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endwith %}
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<body>
+    <div class="tc-container">
+        <h1>Transfer Certificate</h1>
+
+        <div class="info">
+            <label>Student Name:</label> {{new[0]}}<br><br>
+            <label>Gender:</label> {{new[1]}}<br><br>
+            <label>Father's Name:</label> {{new[2]}}<br><br>
+            <label>Mother's Name:</label> {{new[3]}}<br><br>
+            <label>Date of Birth:</label> {{new[4]}}<br><br>
+            <label>Nationality:</label> {{new[5]}}<br><br>
+            <label>Belongs to SC/ST/OBC:</label> {{new[6]}}<br><br>
+            <label>Date of Admission:</label> {{new[7]}}<br><br>
+            <label>Class/Course Enrolled:</label> {{new[8]}}<br><br>
+            <label>Academic Year From:</label> {{new[9]}}<br><br>
+            <label>Academic Year To:</label> {{new[10]}}<br><br>
+            <label>Qualified for Promotion:</label> {{new[11]}}<br><br>
+            <label>Dues Paid:</label> {{new[12]}}<br><br>
+            <label>General Conduct:</label> {{new[13]}}<br><br>
+            <label>Date of Issue (DD/MM/YY):</label> {{new[14]}}<br><br>
+            <label>Reason for Leaving:</label> {{new[15]}}<br><br>
+            <label>Remarks:</label> {{new[16]}}<br><br>
+        </div>
+
+        <div class="stamp">
+            Administrator Stamp
+        </div>
+
+        <div class="principal">
+            Principal
+        </div>
+    </div>
+</body>
+</html>

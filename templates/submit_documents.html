@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Documents</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/jVkQdfQ/download-1.png');
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+             background-position: center;
+             display: flex;
+               justify-content: center;
+           align-items: center;
+        }
+
+        .flash {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            background-color: #007BFF; /* Adjust background color */
+            position: absolute;
+            top: 0;
+        }
+
+        
+
+
+
+       form  {
+            margin-left: 40px;
+            max-width: 400px;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 90%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+                {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endwith %}
+</head>
+<body>
+    
+    <div class="flash">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}<br>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+</div>
+
+</div>
+    <form action="{{ url_for('upload_file') }}" method="POST" enctype="multipart/form-data">
+        <label for="file1">Upload your provisional certificate:</label>
+        <input type="file" name="file1" id="file1">
+
+        <br>
+
+        <label for="file2">Upload your course completion certificate:</label>
+        <input type="file" name="file2" id="file2">
+
+        <br>
+
+        <input type="submit" value="Upload Files">
+    </form>
+   
+</body>
+</html>
+

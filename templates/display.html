@@ -1,0 +1,119 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title></head>
+    {% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+{% endwith %}
+<body>
+    <a href="{{url_for('adminpannel')}}"><button>Back</button></a>
+    <table border="1">
+        <tr>
+            <th>Notifications</th>
+            <th>Action</th>
+        </tr>
+        {% for faculty in new %}
+        <tr>
+            <td>{{ faculty[0] }}</td>
+            <td>
+                <form method="POST" style="display: inline;">
+                    <button type="submit"><a href="{{url_for('notficationupdate', id=faculty[1])}}">Update</a></button>
+                </form>
+                <form method="POST" style="display: inline;">
+                    <button type="submit"><a href="{{url_for('notficationdelete', id=faculty[1])}}">Delete</a></button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+ -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #494848;
+        }
+        h1 {
+            color: #00b32a;
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        button {
+            background-color: #00b32a;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #027615;
+        }
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #00ff1a;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Notifications</h1>
+    <div>
+        <a href="{{url_for('adminpannel')}}"><button>Back</button></a>
+    </div>
+    <table border="1">
+        <tr>
+            <th>Notification</th>
+            <th>Action</th>
+        </tr>
+        {% for faculty in new %}
+        <tr>
+            <td>{{ faculty[0] }}</td>
+            <td>
+                <form method="POST" style="display: inline;">
+                    <button type="submit"><a href="{{url_for('notficationupdate', id=faculty[1])}}">Update</a></button>
+                </form>
+                <form method="POST" style="display: inline;">
+                    <button type="submit"><a href="{{url_for('notficationdelete', id=faculty[1])}}">Delete</a></button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+

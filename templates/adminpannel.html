@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #3c3c3c;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #2be243;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            margin-top: 20px;
+        }
+
+        .flash-messages {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .dashboard-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-diagram .step {
+            flex: 0 0 calc(33.33% - 20px);
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 20px;
+            border-radius: 10px;
+            color: #000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dashboard-diagram .step:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #007BFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Apply background images to each step */
+        .dashboard-diagram .step:nth-child(1) {
+            background-image: url('https://w7.pngwing.com/pngs/15/869/png-transparent-users-group-multi-user-edit-user-s-blue-computer-advertising.png');
+        }
+
+        .dashboard-diagram .step:nth-child(2) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDgBILUl7kpAb7NdTwV2OrpWYuGW1n2GagdA&usqp=CAU');
+        }
+        .dashboard-diagram .step:nth-child(3) {
+            background-image: url('https://blog.tryshiftcdn.com/uploads/2021/01/notifications@2x.jpg');
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+{% for message in messages %}
+    <li>{{ message }}</li>
+{% endfor %}
+{% endwith %}
+<body>
+    <!-- Flash messages at the top -->
+    <div class="flash-messages">
+        <ul class="flashes">
+            {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endwith %}
+        </ul>
+    </div><br><br><br><br><br><br><br>
+
+    <div class="container">
+        <h1>Admin Panel</h1>
+
+        <div class="dashboard-diagram">
+            <!-- Step 1: Admin Step 1 -->
+            <div class="step" onclick="window.location.href='{{url_for('allusers')}}'">
+                <div class="step-text">All users</div>
+            </div>
+
+            <!-- Step 2: Admin Step 2 -->
+            <div class="step" onclick="window.location.href='{{url_for('adminlogout')}}'">
+                <div class="step-text">Logout</div>
+            </div>
+
+            <div class="step" onclick="window.location.href='{{url_for('notifications')}}'">
+                <div class="step-text">New Notifications</div>
+            </div>
+            <div class="step" onclick="window.location.href='{{url_for('display')}}'">
+                <div class="step-text">Notifications Dsiplay</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

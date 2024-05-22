@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Transfer Certificate</title>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+ 
+               {% with messages = get_flashed_messages() %}
+               {% for message in messages %}
+                   <li>{{ message }}</li>
+               {% endfor %}
+           {% endwith %}
+</head>
+{% with messages = get_flashed_messages() %}
+ {% if messages %}
+   <ul class=flashes>
+   {% for message in messages %}
+     <li>{{ message }}</li>
+   {% endfor %}
+   </ul>
+ {% endif %}
+{% endwith %}
+<body>
+   <header>
+             <h1>Transfer Certificate Generator</h1>
+   
+           <nav>
+             <a href="{{url_for('user')}}">Register</a>
+              <a href="{{url_for('userlogin')}}">Login</a>
+             <a href="{{url_for('adminlogin')}}">Admin</a>
+           </nav>
+        </header>
+
+
+   <nav>
+      
+    <ul id="Home" class="nav__links">
+      <div class="word">
+        <span>Automated</span>
+        <span>TC</span>
+        <span>Builder</span>
+        </div>
+      <li class="link"><a href="#Home">Home</a></li>
+      <li class="link"><a href="#process">Process</a></li>
+      <li class="link"><a href="#service">Service</a></li>
+      <li class="link"><a href="#About">About</a></li>
+      <li class="link"><a href="#Community">Community</a></li>
+    </ul>
+    
+  </nav>
+  <header class="section_container header_container">
+    <div class="header__content">
+      <span class="bg__blur"></span>
+      <span class="bg_blur header_blur"></span>
+      <h4>BEST PLACE TO DOWNLOAD YOUR TRANSFER CERTIFICATE[TC]</h4>
+      <h1><span>CERTIFICATE</span> GENERATION</h1>
+      <p>
+          It offers a user-friendly Admin Panel for secure account management and document uploads.
+           Users can pay challans and submit necessary documents <br>for approval. Upon admin authorization, downloadable certificates in PDF format  are readily available. This streamlined process ensures efficient and <br>hassle-free certificate issuance.
+      </p>
+      
+    </div>
+    <div class="header__image">
+      <img src="{{ url_for('static', filename='logo-org2.png') }}" alt="header" />
+      <button onclick="window.location.href='user';" class="btn">Get Started</button>
+
+    </div>
+  </header>
+  <section class="section_container class_container">
+    <div class="class__image">
+      <span class="bg__blur"></span>
+
+    </div>
+    <div class="class__content">
+
+  <section id="process" class="section_container explore_container">
+    <div class="explore__header">
+      <h2 class="section__header">PROCESS OF GETTING YOUR TC</h2>
+      <div class="explore__nav">
+        <span><i class="ri-arrow-left-line"></i></span>
+        <span><i class="ri-arrow-right-line"></i></span>
+      </div>
+    </div>
+    <div class="explore__grid">
+      <div class="explore__card">
+        <span><i class="ri-boxing-fill"></i></span>
+        <h4>Details</h4>
+        <p>
+          Fill up the basic details to ensure the correct names on certificates.
+        </p>
+        <a href="#">Initial Step <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="explore__card">
+        <span><i class="ri-heart-pulse-fill"></i></span>
+        <h4>Payments</h4>
+        <p>
+          You can pay your challans here, if not paid it physically.
+        </p>
+        <a href="#">Second Step<i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="explore__card">
+        <span><i class="ri-run-line"></i></span>
+        <h4>Uploads</h4>
+        <p>
+          The upload of your documents for the verification of student recods to issue certificates.
+        </p>
+        <a href="#">Third Step <i class="ri-arrow-right-line"></i></a>
+      </div>
+      <div class="explore__card">
+        <span><i class="ri-shopping-basket-fill"></i></span>
+        <h4>Download</h4>
+        <p>
+          After the admin approval of your application, you can download your desired Certificates.
+        </p>
+        <a href="#">Final Step<i class="ri-arrow-right-line"></i></a>
+      </div>
+    </div>
+  </section>
+  <br>
+
+   <div id="service">
+      <h2 class="section__header">THE AUTOMATION OF CERTIFICATE GENERATION</h2><br>
+      <p class="para">
+        It is a secured website to downloaad your Transfer Certificate which will be generated automatically based on details and documents that provided by you.
+        It is the most secured and reliable site to make your challan payments which clears your due that results in admin approval of your application.
+      </p>
+      <button onclick="window.location.href='userlogin';" class="btn5">Download Your TC</button>
+    </div>
+
+
+<div id="About">
+   
+
+  <section class="section_container join_container">
+    <h2 class="section__header">WHY DOWNLOAD HERE ?</h2>
+    <p class="section__subheader">
+      This automated generated TC helps you to save time and energy without physically going to Institute and collect the hardcopies,
+      instead here, the downloadable TC can be available. <br><br><br><br>
+    </p>
+    <div class="join__image">
+      
+      <div class="join__grid">
+        <div class="join__card">
+          <span><i class="ri-user-star-fill"></i></span>
+          <div class="join_card_content">
+            <h4>Documentation</h4>
+            <p>Upload your details and required documents.</p>
+          </div>
+        </div>
+        <div class="join__card">
+          <span><i class="ri-vidicon-fill"></i></span>
+          <div class="join_card_content">
+            <h4>Challan Payments</h4>
+            <p>Make your due challan payments here.</p>
+          </div>
+        </div>
+        <div class="join__card">
+          <span><i class="ri-building-line"></i></span>
+          <div class="join_card_content">
+            <h4>Grab Your TC</h4>
+            <p>After successful admin approval, you can Grab your TC.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</div>
+</section>
+
+<section class="review">
+    <div class="section_container review_container">
+      <span><i class="ri-double-quotes-r"></i></span>
+      <div class="review__content">
+        <h4><br>MEMBER REVIEW</h4>
+        <p>
+          This website is one of the most reliable and powerful website in which you can download yor TC after providing the required documents and paying the due challans.
+          it is genuinely approved by admin , after that Yor Transfer Certificate[TC] can be downloadable.
+            
+        </p>
+        <div class="review__rating">
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-fill"></i></span>
+          <span><i class="ri-star-half-fill"></i></span>
+        </div>
+        <div class="review__footer">
+          <div class="review__member">
+            <img src="{{url_for('static',filename='screen-2.png')}}" alt="member" />
+            <div class="review_member_details">
+              <h4>Karthik</h4>
+              <p>Software Developer</p>
+            </div>
+          </div>
+          <div class="img_right">
+            <img src="{{url_for('static',filename='auto.jpg')}}" alt="paper">
+            </div>
+
+          <div class="review__nav">
+            <span><i class="ri-arrow-left-line"></i></span>
+            <span><i class="ri-arrow-right-line"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="Community" class="section_container footer_container">
+    <span class="bg__blur"></span>
+    <span class="bg_blur footer_blur"></span>
+    <div class="footer__col">
+     </div>
+     <p>
+        Take the first step to grab your online generated TC !
+      </p><br><br>
+        <div class="social-icons">
+            <a href="https://www.facebook.com"><img src="{{url_for('static',filename='fb.png')}}" alt="Facebook"></a>
+            <a href="https://twitter.com"><img src="{{url_for('static',filename='twitter.png')}}" alt="Twitter"></a>
+            <a href="https://www.instagram.com"><img src="{{url_for('static',filename='insta.png')}}" alt="instagram"></a>
+        </div><br><br>
+    
+    </div>
+    <div class="footer__col">
+      <h4>Company</h4>
+      <a href="#">Business</a>
+      <a href="#">Franchise</a>
+      <a href="#">Partnership</a>
+      <a href="#">Network</a>
+    </div>
+    <div class="footer__col">
+      <h4>About Us</h4>
+      <a href="#">Blogs</a>
+      <a href="#">Security</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="footer__col">
+      <h4>Contact</h4>
+      <a href="#">Contact Us</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">BMI Calculator</a>
+    </div>
+  <footer>
+      <p>&copy; 2024 Our Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+

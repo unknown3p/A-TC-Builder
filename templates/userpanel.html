@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b906cd;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style the navigation menu */
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Style the main content */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Add animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+section {
+    animation: fadeIn 1s ease; /* Apply fadeIn animation to all sections */
+}
+
+.container1 {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(2, 200px); /* Two rows with fixed height */
+    grid-column-gap: -160px; /* Gap between columns */
+    grid-row-gap: 20px; 
+    
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure images maintain aspect ratio */
+
+}
+.text-overlay {
+    position: absolute; /* Position the text overlay relative to its container */
+    top: 50%; /* Position it 50% from the top */
+    left: 50%; /* Position it 50% from the left */
+    transform: translate(-50%, -50%); /* Center the text overlay */
+    text-align: center; /* Center-align text */
+    color: white; /* Text color */
+    padding: 10px; /* Add padding to the text overlay */
+}
+
+.h2 {
+    left: 50%;
+    font-size: 24px; /* Adjust font size as needed */
+}
+
+
+        h1 {
+            
+            color: #020202;
+            margin-top: 20px;
+        }
+
+        .dashboard-diagram {
+            display: flex;
+            flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-diagram .step {
+            flex: 0 0 calc(33.33% - 20px); /* Adjust the width of each step */
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 20px;
+            border-radius: 10px;
+            color: #000; /* Change text color to black */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; /* Adjust the margin between rows */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dashboard-diagram .step:hover {
+            background-color: rgba(0, 0, 0, 0.3); /* Add a hover background color */
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: #fff;
+            color: #007BFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .step-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px; /* Add margin to separate text from the picture */
+        }
+
+        /* Apply background images to each step */
+        .dashboard-diagram .step:nth-child(1) {
+            background-image: url('https://s3.envato.com/files/313699395/Image%20Preview%20Set%20Figma/05_Profile.jpg'); /* Replace with the URL of your image for step 1 */
+        }
+
+        .dashboard-diagram .step:nth-child(2) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbdhA0DGe7BtVBVNab3ffVdl7gA-kNtafAUGd_lqvQDkVctCXZvlpUjwOSCp1e-iajN1g&usqp=CAU'); /* Replace with the URL of your image for step 2 */
+        }
+
+        .dashboard-diagram .step:nth-child(3) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGrzeSNZrZ_XvKnEYILTGlWNg9RjQtS_9cJA&usqp=CAU'); /* Replace with the URL of your image for step 3 */
+        }
+
+
+        .dashboard-diagram .step:nth-child(4) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq6Tgg-RzFV98s8Jc1yLUqIYn7XQq0kietevx4XjbtH-KN3YGs-eV7KUI-j4UXE-pSUOE&usqp=CAU'); /* Replace with the URL of your image for step 5 */
+        }
+
+        .dashboard-diagram .step:nth-child(5) {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5Nrd-pQjE_jNfcyTLEZQe1TlHR37-AZe5d7bv0-uS1wr4cgopHq2WQPIBWYTKyniZRS4&usqp=CAU'); /* Replace with the URL of your image for step 6 */
+        }
+        .flash {
+            background-color: #8d9088;
+            color: #fff;
+            padding: 10px;
+            max-width: 100%;
+        }
+
+        .sbg {
+            background-color: #8d9088;
+            color: #030303;
+            padding: 4px;
+            word-spacing: 6px;
+
+        }
+        .b1 {
+           align-items: center;
+           max-width: 30%;
+           margin-left: 35%;
+           
+        }
+
+
+    </style>
+                {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            {% endwith %}
+</head>
+   <div class="container">
+        <div class="flash">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </div>
+<body>
+    <body>
+        <div class="container">
+            <header>
+                <h1>User Panel Dashboard</h1>
+            </header>
+            <nav class="sbg">
+                <ul>
+                    <li>Dashboard</li>
+                    <li>Update Profile</li>
+                    <li>Submit Documents</li>
+                    <li>Apply/Download_TC</li>
+                    <li>Logout</li>
+                </ul>  
+            </nav>
+            <br><br>
+            
+              
+                    
+                
+            </div>
+            
+            <div class="grid">
+               
+                <a href="dashboard"> <img src="https://imagetolink.com/ib/AbZFGFKYYj.png" alt="Image 1"></a>
+                <a href="update_profile"> <img src="https://imagetolink.com/ib/nU5xpC0FJz.png" alt="Image 2"></a>
+                <a href="submit_documents"> <img src="https://imagetolink.com/ib/0pc9n0JPqC.png" alt="Image 3"></a>
+                <a href="apply_download_tc"> <img src="https://imagetolink.com/ib/hYQwb0YIGw.png" alt="Image 4"></a>
+                
+                
+                <!-- Add more images here -->
+            </div> <br>
+            <div class="b1">
+              <a href="userlogout"> <img src="https://i.ibb.co/JmLBF1L/Untitled-Project-1.jpg"></a>
+                </div>   
+        </div>      <footer>
+                <!-- Footer content -->
+            </footer>
+        </div>
+    </body>
+</html>
